@@ -1,0 +1,26 @@
+/* div{
+    width: 100%;
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+}
+ul{
+    width: 90%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+ul li{
+    margin: 10px 20px;
+    list-style: none;
+}
+h1{
+    margin: 0;  
+}
+main{
+    margin: 40px auto;
+    padding: 100px;
+    background-color: #333333;
+    width: 50%;
+} */

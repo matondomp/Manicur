@@ -1,0 +1,117 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    padding: 0;
+    background-color:#fa9fc80c;
+    
+}
+app-root{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.footer{
+    width: 100%;
+    margin-top: 8%;
+    margin-bottom: 0;
+}
+.a{
+    color: blueviolet;
+}
+footer.a:hover{
+    background-color:#ffe484;
+}
+
+
+.nav-pills .nav-link{
+    border-radius: 0rem;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    color: blueviolet;
+    background-color:#282a36;
+}
+.any{
+    background-color:#ffe484;
+      color: blueviolet;
+      font-weight: 700;
+  }
+.anys{
+    background-color:blueviolet;
+      color: #ffe484;
+      font-weight: 700;
+  }
+.anys:hover{
+    background-color:blueviolet;
+      color: #ffe484;
+      font-weight: 700;
+  }
+  .any:hover{
+    background-color:blueviolet;
+      color: #ffe484;
+      font-weight: 700;
+  }
+
+  .table .thead-dark th{
+    color: #ffe484;
+  }
+  .cards{
+    color: white; 
+    font-weight: 700;
+  }
+div.card{
+    background-color: #282a3613;
+    border: 1px solid #ffe484;
+    color: white;
+
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+.bg-colors{
+    background-color:#ffe484;
+    color: #000;
+    font-weight: 700;
+}
+a{
+    color: blueviolet;
+    font-weight: 700;
+}
+a:hover{
+    color: blueviolet;
+    font-weight: 700;
+    background-color:#000;
+}
+.margin{
+    margin:30px 10px;
+    padding: 0;
+}
+.bg-color{
+    background-color:#fa9fc80c;
+}
+.media-body h5{
+    color:#f90675e0
+}
+
+ .styleA{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+} 
+
+footer p{
+    margin-bottom: 0;
+    padding: 20px;
+}
+.dropdown-menu{
+    min-width: 30px !important;
+    background-color: #000000;
+}
+
+.modal-content{
+   background-color:whitesmoke;
+   color:#000000;
+   font-weight: 700;
+} 

@@ -1,0 +1,209 @@
+<app-nav></app-nav>
+  <div class="container" style="margin-top: 100px;">
+    
+    <div class="d-flex mb-2" style="margin-bottom: 30px;">
+     <div class="mr-auto p-2">
+       <h1 style="color: #ffe484;">
+      Configurações <fa-icon [icon]="faTools"></fa-icon>
+      </h1>
+    </div>
+
+     <div class="p-2">
+       <button
+     type="button" class="btn bg-colors" style="color: blueviolet; font-weight: 700;" data-toggle="modal" 
+      data-target="#registarModal">
+     Registar</button>
+    </div>
+      
+    </div>
+    
+    <table class="table">
+        <thead class="thead-dark" style="color: blueviolet;">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody style="color: white;">
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</td>
+            <td>Otto</td>
+            <td> 
+                <div class="btn-group btn-block">
+                  <button type="button" class="btn any"
+                    data-toggle="dropdown">Opções</button>
+                  <button type="button" class="btn  btn-flat dropdown-toggle anys" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu" role="menu" x-placement="bottom-start"
+                    style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(67px, 38px, 0px);">
+
+                    <a href="javascript:void(0)" class="  btn-sm"
+                      data-toggle="tooltip" data-widget="chat-pane-toggle" title="Editar"
+                      data-toggle="modal"  data-target="#editarModal"> <i
+                        class="fa fa-edit"></i> Editar
+                    </a>
+
+                  </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td > 
+                <div class="btn-group btn-block" >
+                  <button type="button" class="btn any" 
+                    data-toggle="dropdown">Opções</button>
+                  <button type="button" class="btn btn-flat dropdown-toggle anys" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu" role="menu" x-placement="bottom-start"
+                    style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(67px, 38px, 0px);">
+
+                    <a href="javascript:void(0)" class="  btn-sm" style="width: 3px; background-color: transparent;"
+                      data-toggle="tooltip" data-widget="chat-pane-toggle" title="Editar"
+                      data-toggle="modal"  data-target="#editarModal"> <i
+                        class="fa fa-edit" ></i> Editar
+                    </a>
+
+                  </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</td>
+            <td> 
+                <div class="btn-group btn-block">
+                  <button type="button" class="btn any"
+                    data-toggle="dropdown">Opções</button>
+                  <button type="button" class="btn  btn-flat dropdown-toggle anys" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu" role="menu" x-placement="bottom-start"
+                    style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(67px, 38px, 0px);">
+
+                    <a href="javascript:void(0)" class="  btn-sm"
+                      data-toggle="tooltip" data-widget="chat-pane-toggle" title="Editar"
+                      data-toggle="modal"  data-target="#editarModal"> <i
+                        class="fa fa-edit"></i> Editar
+                    </a>
+
+                  </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td> 
+                <div class="btn-group btn-block" >
+                  <button type="button" class="btn any"
+                    data-toggle="dropdown">Opções</button>
+                  <button type="button" class="btn  btn-flat dropdown-toggle anys" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu" role="menu" x-placement="bottom-start"
+                    style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(67px, 38px, 0px);">
+
+                    <a href="javascript:void(0)" class="  btn-sm"
+                      data-toggle="tooltip" data-widget="chat-pane-toggle" title="Editar"
+                      data-toggle="modal" data-target="#editarModal"> <i
+                        class="fa fa-edit"></i> Editar
+                    </a>
+
+                  </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+
+
+  <div class="modal modal-info fade" id="editarModal" data-backdrop="static" >
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">EDITAR</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn  btn-danger" style="color: white; font-weight: 700;" data-dismiss="modal">Close</button>
+          <button type="button" class="btn bg-colors" style="color: blueviolet; font-weight: 700;">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal modal-info fade" id="registarModal" data-backdrop="static" >
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">REGISTAR</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn  btn-danger" style="color: white; font-weight: 700;" data-dismiss="modal">Close</button>
+          <button type="button" class="btn bg-colors" style="color: blueviolet; font-weight: 700;">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="bg-colors footer">
+    <footer class="container">
+      <p class="float-right"><a href="#" class="a">Back to top</a></p>
+      <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#" class="a">Privacy</a> &middot; <a href="#" class="a">Terms</a></p>
+     </footer>
+  </div>

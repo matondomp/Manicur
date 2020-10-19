@@ -1,0 +1,171 @@
+
+  <app-nav></app-nav>
+
+  <!------ Include the above in your HEAD tag ---------->
+  <div class="container" >
+
+    <section style="width: 70%;margin: 50px auto;">
+      <div class=" panel panel-default  text-center ml-4 mr-4 "
+       style="max-width: 100% !important; max-height: 100% !important; color: #000000 !important;">
+        
+         <div class="row mt-2" style="display: block;">
+        
+           
+          <div class="card testimonial-card col-md-3" style="border: none;padding: 0;margin-bottom: 0;">
+
+            <div class="d-flex mb-2">
+              <div  class="mr-auto p-2">
+                <img src="assets/mp.jpg" width="120px" height="150px"
+                 class="border border-dark mb-2 rounded-circle p-2"
+                  alt="imagem de perfil">
+                 </div>
+
+                  <div class="p-2" style="margin-left: 70%;width: 400px;
+                  display: flex;align-content: center;align-items: center;">
+                    <h2 style="color: #ffe484;">
+                        Configurações
+                    </h2>
+                    <h2 style="color: #ffe484;margin-left: 6px;">
+                      <fa-icon [icon]="faEdit"></fa-icon>
+                    </h2> 
+                   </div>
+      
+            </div>
+          </div>
+        
+          <table class="table">
+                    <thead class="thead-dark" style="color: blueviolet;">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sobrenome</th>
+                        <th scope="col">Editar</th>
+                    </tr>
+                    </thead>
+                    <tbody style="color: white;">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</td>
+                        <td>Otto jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjuuuuuuuuuu</td>
+                        <td> 
+                            <div class="btn-group btn-block">
+                              <button type="button" class="btn any"
+                                data-toggle="dropdown">Opções</button>
+                              <button type="button" class="btn  btn-flat dropdown-toggle anys" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                              </button>
+                              <div class="dropdown-menu" role="menu" x-placement="bottom-start"
+                                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(67px, 38px, 0px);">
+            
+                                <a href="javascript:void(0)" class="  btn-sm"
+                                  data-toggle="tooltip" data-widget="chat-pane-toggle" title="Editar"
+                                  data-toggle="modal"  data-target="#editarModal"> <i
+                                    class="fa fa-edit"></i> Editar
+                                </a>
+            
+                              </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div> 
+
+
+        <div class="row mt-2 ">  
+        <div class="card ml-2 mb-3" 
+        style="max-width: 50rem; max-width: 100%;border-top: none;
+        border-top-left-radius: 0;border-top-right-radius: 0;">
+          <div class="card-header "  style="color: #ffe484;background-color: #343a40;">
+            <h4>Redifinir Password</h4></div>
+          <div class="card-body">
+            <form  novalidate class="needs-validation">
+              <div class="modal-body">
+                <!-- /.card-body -->
+                
+                  <div class="col-md-12">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="old_password" class="col-form-label float-left"> Foto</label>
+                        <input class="form-control" id="old_password" type="file"
+                          formControlName="old_password" placeholder="Senha Actual"
+                          style="background-color:transparent !important;"
+                          autocomplete="old_password-proprio" required autofocus
+                          />
+                      </div>
+
+                      <div class="form-group col-md-6">
+                        <label for="old_password" class="col-form-label float-left"> Senha  Actual</label>
+                        <input class="form-control" id="old_password" type="password"
+                        style="background-color:transparent !important;"
+                          formControlName="old_password" placeholder="Senha Actual"
+                          autocomplete="old_password-proprio" required autofocus
+                          />
+                      </div>
+                      
+                      <div class="form-group col-md-6">
+                        <label class="col-form-label float-left" for="password"
+                         > Nova Senha</label>
+                        <input class="form-control" id="password" type="password" formControlName="password"
+                        style="background-color:transparent !important;"
+                          placeholder="Nova Senha" autocomplete="new-password" required
+                         />
+                        <div class="invalid-feedback">
+                          <div>Password is required</div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                   
+                      
+                      <div class="form-group col-md-6">
+                        <label class="col-form-label float-left" for="password_confirmation"
+                        > Confirmar  Senha</label>
+                        <input class="form-control" id="password_confirmation" type="password"
+                         style="background-color:transparent !important;"
+                          formControlName="password_confirmation" placeholder="Confirmar Senha"
+                          autocomplete="new-password" required
+                           />
+                        <div class="invalid-feedback">
+                          <div>As senhas não correspondem </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <div class="form-group">
+                  <button type="button" class="btn bg-colors"
+                   style="color: blueviolet; font-weight: 700;">Salvar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    
+    </div>
+    
+    </section>
+  </div>
+    
+
+  <div class="bg-colors footer">
+    <footer class="container">
+      <p class="float-right"><a href="#" class="a">Back to top</a></p>
+      <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#" class="a">Privacy</a> &middot; <a href="#" class="a">Terms</a></p>
+     </footer>
+  </div>
