@@ -2,35 +2,16 @@
   <app-nav></app-nav>
 <div class="container" style="margin: 40px auto;">
   <h1 style="color: #ffe484;">Configurações <fa-icon [icon]="faList"></fa-icon></h1>
-    <div class="row">
+    <div class="row" *ngFor="let item of list">
 
      <div class="card col margin" style="width: 18rem;">
-        <img src="assets/foto.jpg" class="card-img-top" alt="...">
+        <img [src]="item.avatar" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="btn bg-colors" style="color:blueviolet">Go somewhere</a>
         </div>
-      </div>
-
-   <div class="card col margin" style="width: 18rem;">
-        <img src="assets/foto.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn bg-colors" style="color:blueviolet">Go somewhere</a>
-        </div>
-      </div>
-
-  <div class="card col margin" style="width: 18rem;">
-        <img src="assets/foto.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn bg-colors" style="color:blueviolet">Go somewhere</a>
-        </div>
-      </div>
-      
+      </div>  
     </div>
   </div>
 

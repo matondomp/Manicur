@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit} from '@fortawesome/free-solid-svg-icons';
+import { ServiceService } from '../service/confi-service/service.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,10 +9,18 @@ import { faEdit} from '@fortawesome/free-solid-svg-icons';
 })
 export class ProfileComponent implements OnInit {
   faEdit:any
-  constructor() { }
+  data={
+    id:null,
+    senha:null,
+    email:null,
+   	nome:null,
+    lastname:null 
+ }
+  constructor(private https:ServiceService) { }
 
   ngOnInit(): void {
     this.faEdit=faEdit
   }
-
+   
+  
 }

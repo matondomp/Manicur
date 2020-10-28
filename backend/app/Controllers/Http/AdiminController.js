@@ -24,7 +24,7 @@ class AdiminController {
             senha:crypt,
             email:email
         })
-        await Mail.send('view', res.toJSON(), (message) => {
+        await Mail.send('emails.view', res.toJSON(), (message) => {
             message
               .to(res.email)
               .from('freitaspedromp@gmail.com')
@@ -35,21 +35,23 @@ class AdiminController {
         return response.json(res)
     }
 
-    async login({request,auth,params}){
+    async login({request,auth}){
+        try{
+                const {email,senha}=request.all()
+                const ids=await Adimin.query().where('email',email)
+                    .select('email','senha').fetch()
 
-        const {id}=params
-        const ids=await Adimin.query().where('id',id)
-             .select('email','senha').fetch()
-      
-        const {email,senha} =request.all()
-        
-            var list
-            ids.rows.map(res=>list=res)    
-            const isSame = await Hash.verify(senha,list.senha)
-            if (!isSame || email!=list.email) return {error:'senha ou email errada'}
-           
-        const res=await auth.attempt(email,senha)
-        return res
+                    var list
+                    ids.rows.map(res=>list=res)   
+                    const isSame = await Hash.verify(senha,list.senha)
+                    if (!isSame || email!=list.email) return {error:'senha ou email errada'}
+                  
+                const res=await auth.attempt(email,senha)
+                return res
+        }catch(err){
+          return err
+        }
+       
     }
 
     async update({request,params}){

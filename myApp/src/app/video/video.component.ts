@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faVideo} from '@fortawesome/free-solid-svg-icons';
+import { ServiceService } from '../service/confi-service/service.service';
 
 @Component({
   selector: 'app-video',
@@ -7,12 +8,16 @@ import { faVideo} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
-  
+  list=[]
   faVideo:any
-  constructor() { }
+  constructor(private http:ServiceService) { }
 
   ngOnInit(): void {
     this.faVideo=faVideo
+    this.http.getArticle().subscribe(
+      item=>{
+       this.list=item 
+      })
   }
 
 }

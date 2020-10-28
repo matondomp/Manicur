@@ -12,7 +12,7 @@ class ArtigeSchema extends Schema {
       table.string('description')
       table.text('fulldescription').unique().notNullable()
       table.decimal('price').unique().notNullable()
-      table.integer('adimin_id').references('id').inTable('adimins')
+      table.integer('adimins_id').references('id').inTable('adimins')
       table.timestamps()
     })
   }

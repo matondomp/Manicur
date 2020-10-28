@@ -1,6 +1,6 @@
 'use strict';
 
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid');
 
 const Room = use('App/Models/Room');
 
@@ -23,7 +23,7 @@ class RoomController {
 
   async create () {
     const room = new Room();
-    const uuid = uuidv4();
+    const uuid = uuidv4.v4();
     room.uuid = uuid;
     await room.save();
     return Room.find(uuid)
@@ -40,7 +40,7 @@ class RoomController {
 
     // send the message upon new message creation
     // define a type for the frontend app - "room:newMessage"
-    broadcast(room.uuid, 'room:newMessage', message);
+     broadcast(room.uuid, 'room:newMessage', message); 
 
     return message
   }

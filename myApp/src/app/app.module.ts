@@ -13,8 +13,9 @@ import { RegisterComponent } from './register/register.component';
 import { AdiminComponent } from './adimin/adimin.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './profile/profile.component';
-import { PdfComponent } from './pdf/pdf.component';
-
+import { PdfComponent } from './pdf/pdf.component'
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   
  declarations: [
@@ -34,6 +35,8 @@ import { PdfComponent } from './pdf/pdf.component';
     NgbModule,
    AppRoutingModule,
    FontAwesomeModule,
+   FormsModule,
+   HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

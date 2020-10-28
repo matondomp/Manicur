@@ -9,8 +9,9 @@ class ChatController {
     console.log('A new subscription for room topic', socket.topic)
   }
 
-  onMessage (message) {
+  onMessage(message){
     console.log('got message', message)
+    this.socket.broadcastToAll('message', message)
   }
 
   onClose () {

@@ -1,28 +1,9 @@
-# Adonis API application
+# Adonis Slim App
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+The Adonis slim app is the tinest boilerplate to create Adonisjs applications with minimal footprint and you get all the goodies of Adonis IoC container, autoloading, ace commands etc.
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+## What's next?
 
-## Setup
+This project structure can scale as you go, simply execute the `ace` commands to create **Controllers**, **Models**, etc for you. 
 
-Use the adonis command to install the blueprint
-
-```bash
-adonis new yardstick --api-only
-```
-
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
+Also make sure to read the [guides](http://dev.adonisjs.com/docs/4.0/installation)

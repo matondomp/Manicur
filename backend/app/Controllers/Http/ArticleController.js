@@ -6,19 +6,30 @@ const Database = use('Database')
 
 class ArticleController {
 
-    async index({response}){
-        const data=await Article.all() 
-        return response.json({data})
-    }
+    async index(){
+        const avatars=await Article.all() 
+        const usersJSON = avatars.toJSON()
+        const list=usersJSON.map(item=>{
+            return {
+              id: item.id,
+              nome: item.nome,
+              description:item.description,
+              fulldescription:item.fulldescription,
+              price:item.price,
+              avatar: `http://localhost:3333/${item.avatar}`
+              }
+         })
 
+        return list
+       
+    }
+/* 
     async show({params,response}){
         const {path} =params
-        /* return path */
         const data=new Image()
-        //return data
         const res=await Image.getUrl(path)
         return res;
-    }
+    } */
 
     async upload({request,response}){
 
@@ -29,8 +40,10 @@ class ArticleController {
           }
           
           const avatars = request.file('file', validationOptions)
-          const avatar=`${new Date().getTime()}.${avatars.extname}`
-          const {adimin_id,nome,description,fulldescription,price} =request.all()
+          var avatar
+          avatars.extname=='mp4'? avatar=`moves/${new Date().getTime()}.${avatars.extname}`: avatar=`photos/${new Date().getTime()}.${avatars.extname}`
+        
+          const {adimins_id,nome,description,fulldescription,price} =request.all()
          
           if( (avatars.type==validationOptions.types[0] || 
                 avatars.type==validationOptions.types[1]) 
@@ -41,7 +54,7 @@ class ArticleController {
               ){
                 var res=await Article.create(
                     {
-                    adimin_id:adimin_id,
+                    adimins_id:adimins_id,
                     nome:nome,
                     avatar:avatar,
                     description:description,
@@ -53,12 +66,12 @@ class ArticleController {
             if(res){
                 
                 if(avatars.extname=='mp4'){
-                  await avatars.move(Helpers.tmpPath('moves'),{
+                  await avatars.move(Helpers.tmpPath(),{
                     name: avatar,
                     overwrite: true
                   })
                 }else{
-                  await avatars.move(Helpers.tmpPath('photos'),{
+                  await avatars.move(Helpers.tmpPath(),{
                     name:avatar,
                     overwrite: true
                  }) 

@@ -14,7 +14,8 @@ const Server = use('Server')
 */
 const globalMiddleware = [
   'Adonis/Middleware/BodyParser',
-  'App/Middleware/ConvertEmptyStringsToNull'
+  'App/Middleware/ConvertEmptyStringsToNull', // after this
+  'Adonis/Middleware/AuthInit'
 ]
 
 /*
@@ -39,22 +40,8 @@ const namedMiddleware = {
   guest: 'Adonis/Middleware/AllowGuestOnly'
 }
 
-/*
-|--------------------------------------------------------------------------
-| Server Middleware
-|--------------------------------------------------------------------------
-|
-| Server level middleware are executed even when route for a given URL is
-| not registered. Features like `static assets` and `cors` needs better
-| control over request lifecycle.
-|
-*/
-const serverMiddleware = [
-  // 'Adonis/Middleware/Static',
-  'Adonis/Middleware/Cors'
-]
-
 Server
   .registerGlobal(globalMiddleware)
   .registerNamed(namedMiddleware)
-  .use(serverMiddleware)
+  .use(['Adonis/Middleware/Static'])
+  .use(['Adonis/Middleware/Cors'])

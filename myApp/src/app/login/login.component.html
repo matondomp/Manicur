@@ -1,12 +1,13 @@
 
 <div class="container margin">
-<form class="form-signin">
+<form class="form-signin" (ngSubmit)="login()">
     <img class="mb-4" src="/assets/verniz.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">ACESSAR</h1>
     <label for="inputEmail" class="sr-only">Nome Do Adimin</label>
-    <input type="text" id="inputEmail" class="form-control" style="background-color:transparent !important;" placeholder="Nome Do Adimin" required autofocus>
+    <input type="text" id="inputEmail" class="form-control" style="background-color:transparent !important;" 
+    placeholder="Nome Do Adimin" required autofocus [(ngModel)]="data.email" [ngModelOptions]="{standalone: true}">
     <label for="inputPassword" class="sr-only">Senha</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required [(ngModel)]="data.senha" [ngModelOptions]="{standalone: true}">
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Lenbra-me
@@ -16,3 +17,6 @@
     <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
   </form>
 </div>
+
+
+

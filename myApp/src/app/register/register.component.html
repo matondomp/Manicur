@@ -1,16 +1,28 @@
 
 <div class="container margin">
-    <form class="form-signin">
+    <form class="form-signin" (ngSubmit)="register()">
         <img class="mb-4" src="/assets/verniz.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">REGISTA-SE</h1>
         <label for="name" class="sr-only">Nome</label>
-        <input type="text" id="name" class="form-control" style="background-color:transparent !important;" placeholder="Nome" required autofocus>
+        <input type="text" id="name" class="form-control" style="background-color:transparent !important;" placeholder="Nome" required autofocus
+           [(ngModel)]="data.nome" [ngModelOptions]="{standalone: true}"
+        >
         <label for="fullname" class="sr-only">Nome Completo</label>
-        <input type="text" id="fullname" class="form-control" style="background-color:transparent !important;" placeholder="Nome Completo" required autofocus>
+        <input type="text" id="fullname" class="form-control" style="background-color:transparent !important;" placeholder="Nome Completo" required autofocus
+              [(ngModel)]="data.lastname" [ngModelOptions]="{standalone: true}"
+        >
+        <label for="fullname" class="sr-only">Nome Completo</label>
+        <input type="text" id="email" class="form-control" style="background-color:transparent !important;" placeholder="E-mail" required autofocus
+              [(ngModel)]="data.email" [ngModelOptions]="{standalone: true}"
+        >
         <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required
+           [(ngModel)]="data.senha" [ngModelOptions]="{standalone: true}"
+        >
         <label for="inputPassword" class="sr-only">Verificar Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Verificar Senha" required>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Verificar Senha" required
+            [(ngModel)]="data.verify_pass" [ngModelOptions]="{standalone: true}"
+        >
         <div class="checkbox mb-3">
         </div>
         <button class="btn btn-lg bg-colors btn-block" style="color: blueviolet;" type="submit">Registar</button>
