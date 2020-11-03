@@ -2,9 +2,9 @@
   <app-nav></app-nav>
 
   <!------ Include the above in your HEAD tag ---------->
-  <div class="container" >
+ <div class="container" >
 
-    <section style="width: 70%;margin: 50px auto;">
+   <section style="width: 70%;margin: 50px auto;">
       <div class=" panel panel-default  text-center ml-4 mr-4 "
        style="max-width: 100% !important; max-height: 100% !important; color: #000000 !important;">
         
@@ -61,7 +61,7 @@
             
                                 <a href="javascript:void(0)" class="  btn-sm"
                                   data-toggle="tooltip" data-widget="chat-pane-toggle" title="Editar"
-                                  data-toggle="modal"  data-target="#editarModal"> <i
+                                  data-toggle="modal"  data-target="#editarModals"> <i
                                     class="fa fa-edit"></i> Editar
                                 </a>
             
@@ -80,33 +80,35 @@
         </div> 
 
 
-        <div class="row mt-2 ">  
+        <div class="row mt-2" id="editarModal">  
         <div class="card ml-2 mb-3" 
         style="max-width: 50rem; max-width: 100%;border-top: none;
         border-top-left-radius: 0;border-top-right-radius: 0;">
           <div class="card-header "  style="color: #ffe484;background-color: #343a40;">
             <h4>Redifinir Password</h4></div>
-          <div class="card-body">
+           <div class="card-body">
             <form  novalidate class="needs-validation">
               <div class="modal-body">
-                <!-- /.card-body -->
                 
+                 
                   <div class="col-md-12">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="old_password" class="col-form-label float-left"> Foto</label>
-                        <input class="form-control" id="old_password" type="file"
-                          formControlName="old_password" placeholder="Senha Actual"
-                          style="background-color:transparent !important;"
-                          autocomplete="old_password-proprio" required autofocus
-                          />
+                          <ngx-dropzone (change)="onSelect($event)"  style="background-color:transparent !important;">
+                                <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"
+                                style="width: 100%;"
+                                 [removable]="true" (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+                                  <ngx-dropzone-label style="width: 100%;">{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                </ngx-dropzone-image-preview>
+                        </ngx-dropzone>
                       </div>
 
                       <div class="form-group col-md-6">
                         <label for="old_password" class="col-form-label float-left"> Senha  Actual</label>
                         <input class="form-control" id="old_password" type="password"
                         style="background-color:transparent !important;"
-                          formControlName="old_password" placeholder="Senha Actual"
+                           placeholder="Senha Actual"
                           autocomplete="old_password-proprio" required autofocus
                           />
                       </div>
@@ -114,7 +116,7 @@
                       <div class="form-group col-md-6">
                         <label class="col-form-label float-left" for="password"
                          > Nova Senha</label>
-                        <input class="form-control" id="password" type="password" formControlName="password"
+                        <input class="form-control" id="password" type="password" 
                         style="background-color:transparent !important;"
                           placeholder="Nova Senha" autocomplete="new-password" required
                          />
@@ -131,20 +133,20 @@
                         > Confirmar  Senha</label>
                         <input class="form-control" id="password_confirmation" type="password"
                          style="background-color:transparent !important;"
-                          formControlName="password_confirmation" placeholder="Confirmar Senha"
+                          placeholder="Confirmar Senha"
                           autocomplete="new-password" required
                            />
                         <div class="invalid-feedback">
                           <div>As senhas não correspondem </div>
                         </div>
-                      </div>
+                      </div> 
                     </div>
-                  </div>
+                  </div> 
                 
 
-              </div>
-
-              <!-- Modal footer -->
+              </div> 
+              
+              
               <div class="modal-footer">
                 <div class="form-group">
                   <button type="button" class="btn bg-colors"
@@ -152,20 +154,19 @@
                 </div>
               </div>
             </form>
-          </div>
-        </div>
-      </div>
+          </div> 
+        </div> 
+      </div> 
       
     
     </div>
     
     </section>
   </div>
-    
+      
+ 
+  <footer class="container footer bg-colors ">
+    <p class="float-right"><a href="#" class="a">Back to top</a></p>
+    <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#" class="a">Privacy</a> &middot; <a href="#" class="a">Terms</a></p>
+ </footer>
 
-  <div class="bg-colors footer">
-    <footer class="container">
-      <p class="float-right"><a href="#" class="a">Back to top</a></p>
-      <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#" class="a">Privacy</a> &middot; <a href="#" class="a">Terms</a></p>
-     </footer>
-  </div>

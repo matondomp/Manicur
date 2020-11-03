@@ -16,6 +16,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PdfComponent } from './pdf/pdf.component'
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 @NgModule({
   
  declarations: [
@@ -37,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
    FontAwesomeModule,
    FormsModule,
    HttpClientModule,
+   NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent]

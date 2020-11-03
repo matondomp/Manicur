@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private https:HttpClient) { }
 
   login(data):Observable<any>{
-    return this.https.post<UserResponse>(`${environment.app_url}/login`,data) 
+    return this.https.post<UserResponse>(`${environment.app_url}/Userlogin`,data) 
  }
 
 }

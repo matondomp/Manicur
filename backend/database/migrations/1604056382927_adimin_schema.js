@@ -5,18 +5,18 @@ const Schema = use('Schema')
 
 class AdiminSchema extends Schema {
   up () {
-    this.create('adimins', (table) => {
-      table.increments()
+    this.table('adimins', (table) => {
       table.string('nome')
       table.string('lastname')
       table.string('senha').unique().notNullable()
       table.string('email').unique().notNullable()
-      table.timestamps()
     })
   }
 
   down () {
-    this.drop('adimins')
+    this.table('adimins', (table) => {
+      // reverse alternations
+    })
   }
 }
 

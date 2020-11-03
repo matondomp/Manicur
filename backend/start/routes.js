@@ -10,6 +10,8 @@ Route.post('/','AdiminController.index')
 Route.get('/:path','ArticleController.show') 
 Route.post('/index','ArticleController.index')
 Route.post('/files','ArticleController.upload')
+Route.post('/video','ArticleController.uploadVideo')
+Route.post('/payVideo','ArticleController.payVideo')
 
 Route.get('/photos/:id',async({request,params,response})=>{
     const {id}=params
@@ -27,6 +29,7 @@ Route.post('/create','AdiminController.store')
 Route.post('/login','AdiminController.login')
 Route.post('/update/:id','AdiminController.update')
 
+Route.post('/Userlogin','UserController.login')
 /* Route.post('/chat/:message','ChatController.onMessage') */
 Route.post('/rooms/:id', 'RoomController.createMessage')
 

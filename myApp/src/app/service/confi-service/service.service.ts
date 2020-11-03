@@ -19,4 +19,10 @@ export class ServiceService {
     getArticle():Observable<any>{
       return this.http.post(`${environment.app_url}/index`,null) 
     }
+    getVideo():Observable<any>{
+      return this.http.post(`${environment.app_url}/payVideo`,null) 
+    }
+    getAll():Observable<any>{
+      return this.http.post(`${environment.app_url}`,null) 
+    }
 }

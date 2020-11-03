@@ -16,7 +16,6 @@ export class ListComponent implements OnInit {
     this.http.getArticle().subscribe(
        item=>{
         this.list=item
-        console.log(this.list)
        })
   }
     

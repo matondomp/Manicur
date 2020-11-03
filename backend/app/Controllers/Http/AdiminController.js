@@ -40,12 +40,10 @@ class AdiminController {
                 const {email,senha}=request.all()
                 const ids=await Adimin.query().where('email',email)
                     .select('email','senha').fetch()
-
                     var list
                     ids.rows.map(res=>list=res)   
                     const isSame = await Hash.verify(senha,list.senha)
                     if (!isSame || email!=list.email) return {error:'senha ou email errada'}
-                  
                 const res=await auth.attempt(email,senha)
                 return res
         }catch(err){

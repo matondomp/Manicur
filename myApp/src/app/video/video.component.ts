@@ -14,7 +14,7 @@ export class VideoComponent implements OnInit {
 
   ngOnInit(): void {
     this.faVideo=faVideo
-    this.http.getArticle().subscribe(
+    this.http.getVideo().subscribe(
       item=>{
        this.list=item 
       })

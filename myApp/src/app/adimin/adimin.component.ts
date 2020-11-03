@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTools} from '@fortawesome/free-solid-svg-icons';
+import { ServiceService } from '../service/confi-service/service.service';
 
 
 @Component({
@@ -10,10 +11,17 @@ import { faTools} from '@fortawesome/free-solid-svg-icons';
 export class AdiminComponent implements OnInit {
   
   faTools:any
-  constructor() { }
+  list: [];
+  
+  constructor(private http:ServiceService) { }
 
   ngOnInit(): void {
     this.faTools=faTools
+    this.http.getArticle().subscribe(
+      item=>{
+       this.list=item
+       console.log(this.list)
+      })
   }
 
 }

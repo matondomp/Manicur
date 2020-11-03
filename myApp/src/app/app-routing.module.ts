@@ -24,6 +24,7 @@ const routes: Routes = [
     path:"pdf",
     component:PdfComponent
   },
+ 
   {
     path:"adimin",
     component:AdiminComponent
