@@ -24,6 +24,21 @@ class ArticleController {
         return list
        
     }
+    async getArticle({params}){
+        const {id}=params
+        const data=await Article.find(id) 
+            return {
+              id: data.id,
+              nome: data.nome,
+              description:data.description,
+              fulldescription:data.fulldescription,
+              price:data.price,
+              avatar: `http://localhost:3333/${data.avatar}`,
+              date:data.created_at
+              }
+        
+    }
+
     async payVideo(){
         const video=await Video.all() 
         const VideoJSON = video.toJSON()
@@ -48,29 +63,34 @@ class ArticleController {
           const avatars = request.file('file', validationOptions)
           var avatar=avatar=`photos/${new Date().getTime()}.${avatars.extname}`
           const {adimin_id,nome,description,fulldescription,price} =request.all()
-          if( (avatars.type==validationOptions.types[0]) && (avatars.extname==validationOptions.extnames[0] 
-                || avatars.extname==validationOptions.extnames[1]) && (validationOptions.size>avatars.size)
-              ){
-                var res=await Article.create(
-                    {
-                    adimin_id:adimin_id,
-                    nome:nome,
-                    avatar:avatar,
-                    description:description,
-                    fulldescription:fulldescription,
-                    price:price
-                    })  
-                }
-            if(res){
-                  await avatars.move(Helpers.tmpPath(),{
-                    name:avatar,
-                    overwrite: true
-                 })    
-              }
-            if (!avatars.moved())return avatars.error() 
-            return response.json(res)
-    }
+          try {
+                    if( (avatars.type==validationOptions.types[0]) && (avatars.extname==validationOptions.extnames[0] 
+                        || avatars.extname==validationOptions.extnames[1]) && (validationOptions.size>avatars.size)
+                      ){
+                        var res=await Article.create(
+                            {
+                            adimin_id:adimin_id,
+                            nome:nome,
+                            avatar:avatar,
+                            description:description,
+                            fulldescription:fulldescription,
+                            price:price
+                            })  
+                        }else return {code:"O tipo ou extensão é invalido" }
+                    if(res){
+                          await avatars.move(Helpers.tmpPath(),{
+                            name:avatar,
+                            overwrite: true
+                        })    
+                      }
+                    if (!avatars.moved())return avatars.error() 
+                    return response.json(res)
+            
 
+          } catch (error) {
+             return error
+          }
+        }
 
     async uploadVideo({request,response}){
 

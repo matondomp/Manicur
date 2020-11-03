@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.faList=faList
-    this.http.getArticle().subscribe(
+    this.http.getArticles().subscribe(
        item=>{
         this.list=item
        })

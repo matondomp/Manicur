@@ -17,6 +17,7 @@ import { PdfComponent } from './pdf/pdf.component'
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { AlertComponent } from './alert/alert.component';
 @NgModule({
   
  declarations: [
@@ -29,7 +30,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     RegisterComponent,
     AdiminComponent,
     ProfileComponent,
-    PdfComponent
+    PdfComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
