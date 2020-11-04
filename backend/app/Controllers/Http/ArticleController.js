@@ -4,7 +4,7 @@ const Article=use('App/Models/Artige')
 const Video=use('App/Models/Video')
 const Image=use('App/Models/Image')
 const Database = use('Database')
-
+const fs=require('fs')
 class ArticleController {
 
     async index(){
@@ -87,6 +87,54 @@ class ArticleController {
                     return response.json(res)
             
 
+          } catch (error) {
+             return error
+          }
+        }
+
+    async updateFile({request,response,params}){
+        const validationOptions = {
+            types: ['image'],
+            size: '500mb',
+            extnames: ['png', 'jpg']
+          }
+           const avatars = request.file('file', validationOptions)
+           var avatar=avatar=`photos/${new Date().getTime()}.${avatars.extname}`
+           const{id}=params
+           const {nome,description,fulldescription,price,old_file} =request.all()
+           const data=await Article.find(id)
+              try {
+                    if( (avatars.type==validationOptions.types[0]) && (avatars.extname==validationOptions.extnames[0] 
+                        || avatars.extname==validationOptions.extnames[1]) && (validationOptions.size>avatars.size)
+                      ){   await data.merge({
+                              nome:nome,
+                              avatar:avatar,
+                              description:description,
+                              fulldescription:fulldescription,
+                              price:price
+                          })
+                          var res=await data.save() 
+                          
+                        }else return {code:500,msg:"O tipo ou extensão é invalido" }
+                    if(res){
+                           try{
+                             const fs = Helpers.promisify(require('fs'))
+                             const list=await fs.unlink(Helpers.tmpPath(old_file))
+                           
+                             await avatars.move(Helpers.tmpPath(),{
+                               name:avatar,
+                               overwrite: true
+                            })
+                           }catch(error){
+                              await avatars.move(Helpers.tmpPath(),{
+                                name:avatar,
+                                overwrite: true
+                            })
+                            return error
+                           }       
+                      }
+                    if (!avatars.moved())return avatars.error() 
+                    return response.json(res)
           } catch (error) {
              return error
           }

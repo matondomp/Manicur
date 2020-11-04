@@ -28,6 +28,9 @@ export class ServiceService {
     registerAticle(data):Observable<any>{
       return this.http.post<UserResponse>(`${environment.app_url}/files`,data) 
    }
+    updateAticle(data,id):Observable<any>{
+      return this.http.post<UserResponse>(`${environment.app_url}/files/${id}`,data) 
+   }
    
     getArticles():Observable<any>{
       return this.http.post(`${environment.app_url}/index`,null) 

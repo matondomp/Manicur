@@ -53,7 +53,6 @@ class AdiminController {
     }
 
     async update({request,params}){
-
         const{id}=params
         const {nome,lastname,senha,email}=request.all()
         const data=await Adimin.find(id)

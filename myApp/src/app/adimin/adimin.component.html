@@ -57,7 +57,8 @@
 
                     <a href="javascript:void(0)" class="  btn-sm"
                       data-toggle="tooltip" data-widget="chat-pane-toggle" title="Editar"
-                      data-toggle="modal"  data-target="#editarModal"> <i
+                      data-toggle="modal"  data-target="#editarModal"
+                       (click)="getAllData(item.id,item.file,item.nome,item.description,item.fulldescription,item.price,item.avatar)"> <i
                         class="fa fa-edit"></i> Editar
                     </a>
 
@@ -69,7 +70,7 @@
     </table>
   </div>
 
-     
+  <app-alert></app-alert>
             <div class="modal modal-info fade" id="image" data-backdrop="static">
               <div class="modal-dialog"  >
                 <div class="modal-content" style="width: 100%;width: 290px;background-color: black;border:  #ffe484 2px solid;">
@@ -99,7 +100,6 @@
             </button>
           </div>
           <div class="modal-body">
-            <app-alert></app-alert>
             <div class="col-md-12">
               <div class="card-default">
 
@@ -188,7 +188,7 @@
           </button>
         </div>
         <div class="modal-body">
-        
+          <app-alert></app-alert>
           <div class="col-md-12">
             <div class="card-default">
 
@@ -198,22 +198,25 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="control-label"><i class="fa fa-edit"></i> Nome</label>
-                      <input type="text" class="form-control" placeholder="Descrição"
+                      <input type="text" class="form-control" placeholder="Nome"
+                      [(ngModel)]="data.nome"
                        name="Descricao">
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="control-label"><i class="fa fa-edit"></i>Ultimo Nome</label>
-                      <input type="text" class="form-control" placeholder="Ultimo Nome"
-                        name="Ultimo_nome">
+                      <label class="control-label"><i class="fa fa-edit"></i>Descrição</label>
+                      <input type="text" class="form-control" placeholder="Descrição"
+                      [(ngModel)]="data.description"
+                        name="Descricao">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="control-label"><i class="fa fa-edit"></i> Descrição longa</label>
                       <input type="text" class="form-control" placeholder="Descrição longa"
+                      [(ngModel)]="data.fulldescription"
                         name="desc_log">
                     </div>
                   </div>
@@ -222,43 +225,34 @@
                     <div class="form-group">
                       <label class="control-label"><i class="fa fa-edit"></i>Preço</label>
                       <input type="text" class="form-control" placeholder="Preço"
+                      [(ngModel)]="data.price"
                         name="preco">
                     </div>
                   </div>
-
+<!-- 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="control-label"><i class="fa fa-edit"></i>Data De Criação</label>
                       <input type="text" class="form-control" placeholder="data"
+                      [(ngModel)]="data.description"
                         name="Data Criação">
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="form-group">
                       <label class="control-label"><i class="fa fa-edit"></i>Imagem</label>
                       <ngx-dropzone (change)="onSelect($event)"  style="background-color:transparent !important;">
-                        <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                        <ngx-dropzone-label>Largue aqui!</ngx-dropzone-label>
                         <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"
                         style="width: 100%;"
                          [removable]="true" (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
-                          <ngx-dropzone-label style="width: 100%;">{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                          <ngx-dropzone-label style="width: 100%;"  >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                          </ngx-dropzone-image-preview>
                      </ngx-dropzone>
                     </div>
                   </div>
 
-                  <!-- <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="control-label"><i class="fa fa-edit"></i>Tipo de Objecto</label>
-                      <select class="form-control"  name="id">
-                        <option selected>Tipo de Objecto</option>
-                        <option value="" ></option>
-                          
-                        </option>
-                      </select>
-                    </div>
-                  </div> -->
                 </div>
               </div>
               <!-- /.card-body -->
@@ -267,7 +261,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn  btn-danger" style="color: white; font-weight: 700;" data-dismiss="modal">Close</button>
-          <button type="button" class="btn bg-colors" style="color: blueviolet; font-weight: 700;">Save changes</button>
+          <button type="button" class="btn bg-colors" style="color: blueviolet; font-weight: 700;" (click)="update()">Save changes</button>
         </div>
       </div>
     </div>
