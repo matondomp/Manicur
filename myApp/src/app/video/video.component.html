@@ -1,14 +1,83 @@
 
   <app-nav></app-nav>
 
-<div class="container"  style="margin: 40px auto;" *ngFor="let item of list">
-  <h1 style="color: #ffe484;margin-bottom: 30px;">{{item.description}} <fa-icon [icon]="faVideo"></fa-icon></h1>
-    <div class="text-white margin card">
+<div class="container"  style="margin: 40px auto;" >
+  
+  <div class="d-flex mb-2" style="margin-bottom: 30px;">
+    <div class="mr-auto p-2">
+      <h1 style="color: #ffe484;">
+      VIDEO <fa-icon [icon]="faVideo"></fa-icon>
+     </h1>
+   </div>
+
+    <div class="p-2">
+      <button
+    type="button" class="btn bg-colors" style="color: blueviolet; font-weight: 700;" data-toggle="modal" 
+     data-target="#registarModal">
+    Registar</button>
+   </div>
+     
+   </div>
+    <div class="text-white margin card" *ngFor="let item of list">
       <video width="99%" height="auto" controls style="margin: 0px auto;">
         <source [src]="item.video" type="video/mp4">
         <source src="assets/movie.ogg" type="video/ogg">
       </video>
     </div>
+</div>
+
+<div class="modal modal-info fade" id="registarModal" data-backdrop="static" >
+  <div class="modal-dialog modal-lg" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">REGISTAR</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="card-default">
+
+            <!-- /.card-header -->
+            <div class="card-body" style="padding: 9px;"><br>
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label"><i class="fa fa-edit"></i>Descrição</label>
+                    <input type="text" class="form-control" placeholder="Descrição"
+                    [(ngModel)]="data.description"
+                      name="Descricao">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label"><i class="fa fa-edit"></i>Imagem</label>
+                    <ngx-dropzone (change)="onSelect($event)"  style="background-color:transparent !important;">
+                      <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"
+                      style="width: 100%;"
+                       [removable]="true" (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+                        <ngx-dropzone-label style="width: 100%;">{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                       </ngx-dropzone-image-preview>
+                   </ngx-dropzone>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn  btn-danger" style="color: white; font-weight: 700;" data-dismiss="modal">Close</button>
+        <button type="button" class="btn bg-colors" style="color: blueviolet; font-weight: 700;" (click)="register()">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer class="container footer bg-colors ">

@@ -13,15 +13,25 @@ export class ProfileComponent implements OnInit {
     id:null,
     senha:null,
     email:null,
-   	nome:null,
-    lastname:null 
+    username:null
  }
+ list=[]
   constructor(private https:ServiceService) { }
 
   ngOnInit(): void {
     this.faEdit=faEdit
+    this.getUser()
   }
    
+  getUser(){
+     this.https.getUser(this.data).subscribe(
+      item=>{
+        this.list=item
+        console.log(this.list)
+       }
+     )
+  }
+
   files: File[] = [];
  
 onSelect(event) {

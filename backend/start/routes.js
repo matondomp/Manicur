@@ -32,6 +32,7 @@ Route.post('/login','AdiminController.login')
 Route.post('/update/:id','AdiminController.update')
 
 Route.post('/Userlogin','UserController.login')
+Route.post('/listUser','UserController.index')
 /* Route.post('/chat/:message','ChatController.onMessage') */
 Route.post('/rooms/:id', 'RoomController.createMessage')
 

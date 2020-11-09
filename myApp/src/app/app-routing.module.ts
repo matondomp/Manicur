@@ -8,7 +8,8 @@ import{ RegisterComponent } from './register/register.component'
 import { LoginComponent } from './login/login.component';
 import { AdiminComponent } from './adimin/adimin.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PdfComponent } from './pdf/pdf.component';
+import { PdfComponent } from './pdf/pdf.component'
+import {AuthGuardService} from './service/guard/auth-guard.service'
 
 const routes: Routes = [
  
@@ -18,7 +19,8 @@ const routes: Routes = [
   },
   {
     path:"profile",
-    component:ProfileComponent
+    component:ProfileComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path:"pdf",
@@ -27,7 +29,8 @@ const routes: Routes = [
  
   {
     path:"adimin",
-    component:AdiminComponent
+    component:AdiminComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:"registar",

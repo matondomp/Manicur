@@ -5,7 +5,7 @@ import { faVideo} from '@fortawesome/free-solid-svg-icons';
 import { faHome} from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-
+import {AuthGuardService} from '../service/guard/auth-guard.service'
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -18,7 +18,9 @@ export class NavComponent implements OnInit {
   faHome:any
   faList:any
   faUser:any
-  constructor() { }
+  valida:any
+  constructor(private guard:AuthGuardService) { }
+  
 
   ngOnInit(): void {
     this.faTools=faTools
@@ -27,6 +29,5 @@ export class NavComponent implements OnInit {
     this.faList=faList
     this.faUser=faUser
   }
-
 
 }

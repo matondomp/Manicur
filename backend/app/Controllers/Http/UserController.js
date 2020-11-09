@@ -5,6 +5,12 @@ const Hash = use('Hash')
 
 class UserController {
 
+   async index(){
+      const data=await User
+      .query().select('id','username','email').fetch()
+      return data
+    }
+
     async login({request,auth}){
         try{
              const {email,senha}=request.all()

@@ -31,7 +31,13 @@ export class ServiceService {
     updateAticle(data,id):Observable<any>{
       return this.http.post<UserResponse>(`${environment.app_url}/files/${id}`,data) 
    }
+    getUser(data):Observable<any>{
+      return this.http.post<UserResponse>(`${environment.app_url}/listUser`,data) 
+   }
    
+   registerVideo(data):Observable<any>{
+    return this.http.post<UserResponse>(`${environment.app_url}/video`,data) 
+   }
     getArticles():Observable<any>{
       return this.http.post(`${environment.app_url}/index`,null) 
     }
