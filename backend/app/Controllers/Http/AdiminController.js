@@ -27,7 +27,7 @@ class AdiminController {
         await Mail.send('emails.view', res.toJSON(), (message) => {
             message
               .to(res.email)
-              .from('freitaspedromp@gmail.com')
+              .from('freitaspedrompdd@gmail.com')
               .subject('Seja Bem Vindo Mp & Melita Salão de Unhas')
           })
       
